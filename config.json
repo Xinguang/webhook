@@ -1,0 +1,14 @@
+{
+    "Hooks":[
+        {
+            "Repo":"starboychina/webhook",
+            "Branch":"master",
+            "Shell":"build.sh"
+        },
+        {
+            "Repo":"starboychina/webhook",
+            "Branch":"dev",
+            "Shell":"date"
+        }
+    ]
+}
