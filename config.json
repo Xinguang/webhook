@@ -1,12 +1,12 @@
 {
     "Hooks":[
         {
-            "Repo":"starboychina/webhook",
+            "Repo":"https://github.com/starboychina/webhook",
             "Branch":"master",
             "Shell":"build.sh"
         },
         {
-            "Repo":"starboychina/webhook",
+            "Repo":"https://try.gogs.io/starboychina/webhook",
             "Branch":"dev",
             "Shell":"date"
         }

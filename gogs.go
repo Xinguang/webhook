@@ -8,27 +8,27 @@ import (
 	"strings"
 )
 
-type githubPayload struct {
+type gogsPayload struct {
 	// ref
 	Ref string `json:"ref"` // "refs/heads/master"
 	// repository
 	Repo struct {
-		URL string `json:"url"` // "https://github.com/starboychina/webhook"
+		URL string `json:"url"` // "https://try.gogs.io/starboychina/webhook"
 	} `json:"repository"`
 }
 
 func init() {
 
-	http.HandleFunc("/github", githubHandle)
+	http.HandleFunc("/gogs", gogsHandle)
 
 }
 
-func githubHandle(w http.ResponseWriter, req *http.Request) {
+func gogsHandle(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "")
 	defer req.Body.Close()
 	decoder := json.NewDecoder(req.Body)
 
-	var payload githubPayload
+	var payload gogsPayload
 	err := decoder.Decode(&payload)
 	if err != nil {
 		log.Printf("payload json decode failed: %s\n", err)

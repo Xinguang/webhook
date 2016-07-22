@@ -6,12 +6,12 @@ webhook
 
 ## What is `webhook`?
 
-`webhook` is a little webserver written in go. He waits for webhook calls by github to run little shell commands.
+`webhook` is a little webserver written in go. He waits for webhook calls by github (or gogs) to run little shell commands.
 
 ## How to use
 
 Just edit the config.json to your needs. A short example:
-You want to track the status of your Repository "uaername/repo" and the branch master. If there is an update to this branch you want to execute your shell script "niftyscript.sh".
+You want to track the status of your Repository URL and the branch master. If there is an update to this branch you want to execute your shell script "niftyscript.sh".
 
 ```json
 {
@@ -20,6 +20,11 @@ You want to track the status of your Repository "uaername/repo" and the branch m
           "Repo":"username/repo",
           "Branch":"master",
           "Shell":"niftyscript.sh"
+        },
+        {
+          "Repo":"Repo URL",
+          "Branch":"master",
+          "Shell":"script.sh"
         }
     ]
 }
@@ -32,6 +37,7 @@ Now start the server with
 ```
 
 and add a git-webhook for your.domain.com:9000/github. Everytime you push to master, your script gets executed.
+or add your.domain.com:9000/gogs. for gogs Repository.
 
 ## Using Docker
 
