@@ -12,6 +12,6 @@ docker run -it --rm -v $(pwd):/root golang:alpine sh -c '
   go build -o /root/webhook
 '
 
-docker rmi starboychina/webhook
-docker build -t starboychina/webhook:1.13.0 .
-docker build -t starboychina .
+# docker rmi starboychina/webhook
+# docker build -t starboychina/webhook:1.13.0 .
+# docker build -t starboychina .
