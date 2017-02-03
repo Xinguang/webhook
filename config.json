@@ -3,11 +3,16 @@
         {
             "Repo":"https://github.com/starboychina/webhook",
             "Branch":"master",
-            "Shell":"build.sh"
+            "Shell":"cd /var/ && git pull && make && make install"
         },
         {
             "Repo":"https://try.gogs.io/starboychina/webhook",
             "Branch":"dev",
+            "Shell":"date"
+        },
+        {
+            "Repo":"https://bitbucket.org/starboychina/hook",
+            "Branch":"master",
             "Shell":"date"
         }
     ]

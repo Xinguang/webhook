@@ -6,24 +6,29 @@ webhook
 
 ## What is `webhook`?
 
-`webhook` is a little webserver written in go. He waits for webhook calls by github (or gogs) to run little shell commands.
+`webhook` is a little webserver written in go. He waits for webhook calls by github (or bitbucket, gogs) to run little shell commands.
 
 ## How to use
 
 Just edit the config.json to your needs. A short example:
-You want to track the status of your Repository URL and the branch master. If there is an update to this branch you want to execute your shell script "niftyscript.sh".
+You want to track the status of your Repository URL and the branch master. If there is an update to this branch you want to execute your shell script.
 
 ```json
 {
     "Hooks":[
         {
-          "Repo":"username/repo",
-          "Branch":"master",
-          "Shell":"niftyscript.sh"
+          "Repo":"Repo URL",
+          "Branch":"development",
+          "Shell":"cd /var/ && git pull && make && make install"
         },
         {
           "Repo":"Repo URL",
-          "Branch":"master",
+          "Branch":"staging",
+          "Shell":"docker restart app-node"
+        },
+        {
+          "Repo":"Repo URL",
+          "Branch":"production",
           "Shell":"script.sh"
         }
     ]
@@ -37,7 +42,7 @@ Now start the server with
 ```
 
 and add a git-webhook for your.domain.com:9000/github. Everytime you push to master, your script gets executed.
-or add your.domain.com:9000/gogs. for gogs Repository.
+or add your.domain.com:9000/bitbucket. for bitbucket Repository, add your.domain.com:9000/gogs. for gogs Repository.
 
 ## Using Docker
 
