@@ -9,7 +9,7 @@ type gogsPayload struct {
 	Ref string `json:"ref"` // "refs/heads/master"
 	// repository
 	Repo struct {
-		URL string `json:"url"` // "https://try.gogs.io/starboychina/webhook"
+		URL string `json:"clone_url"` // "https://try.gogs.io/starboychina/webhook"
 	} `json:"repository"`
 }
 
