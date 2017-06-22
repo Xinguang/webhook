@@ -1,6 +1,6 @@
 webhook
 =====
-[![Build Status](https://travis-ci.org/starboychina/webhook.svg)](https://travis-ci.org/starboychina/webhook)
+[![Build Status](https://travis-ci.org/Xinguang/webhook.svg)](https://travis-ci.org/Xinguang/webhook)
 
 ---
 
