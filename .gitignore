@@ -2,3 +2,6 @@
 .ash_history
 
 webhook
+test-data
+webhook.log
+debug

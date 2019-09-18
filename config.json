@@ -14,6 +14,11 @@
             "Repo":"https://bitbucket.org/starboychina/hook",
             "Branch":"master",
             "Shell":"date"
+        },
+        {
+            "Repo":"https://gitlab.com/xinguang/webhook.git",
+            "Branch":"master",
+            "Shell":"date"
         }
     ]
 }
