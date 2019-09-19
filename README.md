@@ -46,18 +46,18 @@ or add your.domain.com:9000/bitbucket. for bitbucket Repository, add your.domain
 
 ## Using Docker
 
-    docker run -d --name webhook -p 9000:9000 -v $(pwd)/config.json:/config.json starboychina/webhook
+    docker run -d --name webhook -p 9000:9000 -v $(pwd)/config.json:/config.json xinguang/webhook
 
 With Docker support (access host docker inside container)
 
-    docker run -d --name webhook -p 9000:9000 -v $(pwd)/config.json:/config.json -v /var/run/docker.sock:/var/run/docker.sock starboychina/webhook
+    docker run -d --name webhook -p 9000:9000 -v $(pwd)/config.json:/config.json -v /var/run/docker.sock:/var/run/docker.sock xinguang/webhook
 
 
 ## License
 
 This Software is licensed under the MIT License.
 
-Copyright (c) 2016 starboychina
+Copyright (c) 2016 Xinguang
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

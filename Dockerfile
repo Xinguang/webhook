@@ -6,8 +6,8 @@ RUN apk add --no-cache \
 		git \
 		openssh-client go g++ && \
     rm -rf /var/cache/apk/* && \
-    go get -u github.com/starboychina/webhook && \
-    cd /go/src/github.com/starboychina/webhook && \
+    go get -u github.com/Xinguang/webhook && \
+    cd /go/src/github.com/Xinguang/webhook && \
     ls -la && \
     go build -o /usr/bin/webhook . && \
     webhook -h && \
