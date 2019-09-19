@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"strings"
+
+	log "github.com/sirupsen/logrus"
 )
 
 type gitlabPayload struct {
@@ -20,8 +21,8 @@ type gitlabRepository struct {
 func init() {
 	var payload gitlabPayload
 	route("/gitlab", &payload, func(hook Hook) bool {
-		fmt.Println(payload.Ref)
-		fmt.Println(strings.TrimRight(hook.Repo, "/"))
+		log.Info(payload.Ref)
+		log.Info(strings.TrimRight(hook.Repo, "/"))
 		return strings.Contains(payload.Repository.GitURL, strings.TrimRight(hook.Repo, "/")) &&
 			payload.Ref == "refs/heads/"+hook.Branch
 	})

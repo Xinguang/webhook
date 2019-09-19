@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
-	"log"
+
+	log "github.com/sirupsen/logrus"
 )
 
 type Config struct {
@@ -20,12 +20,12 @@ type Hook struct {
 func loadConfig() {
 	configData, err := ioutil.ReadFile(*cmdConfigFile)
 	if err != nil {
-		fmt.Println(*cmdConfigFile + " not found")
+		log.Info(*cmdConfigFile + " not found")
 		log.Fatal(err)
 	}
 	err = json.Unmarshal(configData, &config)
 	if err != nil {
-		fmt.Println(*cmdConfigFile + " invalid")
+		log.Info(*cmdConfigFile + " invalid")
 		log.Fatal(err)
 	}
 }

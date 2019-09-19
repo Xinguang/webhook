@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+
+	log "github.com/sirupsen/logrus"
 )
 
 func route(pattern string,
@@ -26,14 +27,14 @@ func route(pattern string,
 		for _, hook := range config.Hooks {
 			if handler(hook) {
 				msg = fmt.Sprintf(executed, hook.Repo, hook.Branch)
-				logger.Printf("success: %s\n", msg)
+				log.Infof("success: %s\n", msg)
 				msg += "`" + hook.Shell + "`"
 				executeShell(hook.Shell)
 			}
 		}
 
 		if len(msg) < 1 {
-			logger.Printf(nothingToDo)
+			log.Info(nothingToDo)
 			msg = nothingToDo
 		}
 		fmt.Fprintf(w, msg)
