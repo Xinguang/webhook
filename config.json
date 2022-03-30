@@ -2,16 +2,19 @@
     "Hooks":[
         {
             "Repo":"https://github.com/starboychina/webhook",
+            "Token":"Token",
             "Branch":"master",
             "Shell":"cd /var/ && git pull && make && make install"
         },
         {
             "Repo":"https://try.gogs.io/starboychina/webhook",
+            "Token":"Token",
             "Branch":"dev",
             "Shell":"date"
         },
         {
             "Repo":"https://bitbucket.org/starboychina/hook",
+            "Token":"Token",
             "Branch":"master",
             "Shell":"date"
         },

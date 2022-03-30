@@ -9,7 +9,7 @@ import (
 
 func route(pattern string,
 	payload interface{},
-	handler func(Hook) bool) {
+	handler func(*http.Request, Hook) bool) {
 
 	log.Printf(pattern)
 	http.HandleFunc(pattern, func(w http.ResponseWriter, req *http.Request) {
@@ -25,7 +25,7 @@ func route(pattern string,
 
 		msg := ""
 		for _, hook := range config.Hooks {
-			if handler(hook) {
+			if handler(req, hook) {
 				msg = fmt.Sprintf(executed, hook.Repo, hook.Branch)
 				log.Infof("success: %s\n", msg)
 				msg += "`" + hook.Shell + "`"

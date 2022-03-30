@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
@@ -45,7 +46,7 @@ type bitbucketHTML struct {
 
 func init() {
 	var payload bitbucketPayload
-	route("/bitbucket", &payload, func(hook Hook) bool {
+	route("/bitbucket", &payload, func(req *http.Request, hook Hook) bool {
 		log.Info(payload.Push.Changes[0].New.Name)
 		return strings.TrimRight(hook.Repo, "/") == payload.Repository.Links.HTML.HREF &&
 			payload.Push.Changes[0].New.Name == hook.Branch

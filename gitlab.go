@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
@@ -20,7 +21,10 @@ type gitlabRepository struct {
 
 func init() {
 	var payload gitlabPayload
-	route("/gitlab", &payload, func(hook Hook) bool {
+	route("/gitlab", &payload, func(req *http.Request, hook Hook) bool {
+		if len(hook.Token) > 0 && hook.Token != req.Header.Get("X-Gitlab-Token") {
+			return false
+		}
 		log.Info(payload.Ref)
 		log.Info(strings.TrimRight(hook.Repo, "/"))
 		return strings.Contains(payload.Repository.GitURL, strings.TrimRight(hook.Repo, "/")) &&
